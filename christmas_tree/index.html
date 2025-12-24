@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Elf Emotion Tracker ✨🧝‍♀️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Elf Emotion Tracker ✨</h1>
+    <p class="subtitle">A cozy workshop of feelings, cocoa, and glitter. Track an elf’s mood through tiny events.</p>
+  </header>
+
+  <main id="app">
+    <!-- Left: Elf card -->
+    <section id="elfCard">
+
+      <!-- Profiles selector -->
+      <div class="profiles">
+        <label for="elfSelect">Choose Elf:</label>
+        <select id="elfSelect"></select>
+        <button id="newElf">➕ Add Elf</button>
+      </div>
+
+      <!-- Avatar (populated dynamically by JS based on look) -->
+      <div id="avatar" aria-live="polite" aria-label="Elf avatar area"></div>
+
+      <!-- Identity -->
+      <div class="identity">
+        <div class="row">
+          <label>Name:</label>
+          <input id="elfName" type="text" placeholder="e.g., Pip Glitterwhisk" />
+        </div>
+        <div class="row">
+          <label>Role:</label>
+          <select id="elfRole">
+            <option>Toy Painter</option>
+            <option>Cookie Engineer</option>
+            <option>Reindeer Wrangler</option>
+            <option>Glitter Logistics</option>
+            <option>Warm Cocoa Specialist</option>
+          </select>
+        </div>
+        <!-- NEW: Look selector -->
+        <div class="row">
+          <label>Look:</label>
+          <select id="elfLook">
+            <option value="default">Classic Elf</option>
+            <option value="painter">Toy Painter</option>
+            <option value="chef">Cookie Engineer</option>
+            <option value="reindeer">Reindeer Wrangler</option>
+            <option value="sparkle">Glitter Logistics</option>
+            <option value="cocoa">Warm Cocoa Specialist</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Mood block -->
+      <div class="moodBlock">
+        <div class="moodHeader">
+          <span class="label">Current mood</span>
+          <span id="moodEmoji" aria-label="mood">🙂</span>
+        </div>
+        <div id="moodBarWrap">
+          <div id="moodBar"></div>
+        </div>
+        <div id="moodText">Calm and cozy</div>
+      </div>
+    </section>
+
+    <!-- Right: Controls and log -->
+    <section id="controlPanel">
+      <h2>Trigger events</h2>
+      <div id="events">
+        <button class="event" data-change="12">Got a hug 🤗</button>
+        <button class="event" data-change="18">Cocoa break ☕</button>
+        <button class="event" data-change="25">Finished a toy 🎁</button>
+        <button class="event" data-change="-10">Ran out of glitter 😬</button>
+        <button class="event" data-change="-18">Spilled cocoa 😿</button>
+        <button class="event" data-change="-22">Reindeer prank 😵</button>
+        <button class="event" data-random="true">Chaos button 🎲</button>
+      </div>
+
+      <div class="sliders">
+        <div class="sliderRow">
+          <label for="energy">Energy</label>
+          <input id="energy" type="range" min="0" max="100" value="65" />
+        </div>
+        <div class="sliderRow">
+          <label for="glitter">Glitter supply</label>
+          <input id="glitter" type="range" min="0" max="100" value="50" />
+        </div>
+        <div class="sliderRow">
+          <label for="coziness">Coziness</label>
+          <input id="coziness" type="range" min="0" max="100" value="70" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="reset">Reset</button>
+        <button id="snapshot">Write diary entry ✍️</button>
+      </div>
+
+      <h2>Daily elf log</h2>
+      <div id="log"></div>
+    </section>
+  </main>
+
+  <footer>
+    Built for joy. MERRY CHRISTMAS
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
